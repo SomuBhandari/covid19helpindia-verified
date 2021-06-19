@@ -1,0 +1,142 @@
+/* media queries */
+
+@media only screen and (max-width: 900px){
+    .navbar-brand img {
+        height: 45px !important;
+    }
+    .promo-title {
+        font-size: 30px !important;
+        padding-top: 2%;
+    }
+    #banner {
+        padding-top: 2%;
+    }
+
+    .card {
+        border: 1px solid rgba(0,0,0,.125) !important;
+    }
+   
+}
+
+#nav-bar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.navbar {
+    padding: 0 !important;
+    background-color: #e2dfe6;
+}
+
+.navbar-brand img {
+    height: 75px;
+    padding-left: 10px;
+}
+
+
+.navbar-nav li
+{
+    padding: 0 10px;
+}
+.navbar-nav li a
+{
+    color: #3b2c83 !important;
+    font-weight: 600;
+    float: right;
+    text-align: left;
+    font-size: 20px;
+}
+.fa-bars
+{
+    color: #fff;
+    font-size: 30px !important;
+}
+.navbar-toggler
+{
+    outline: none !important;
+}
+
+
+/* banner */
+
+
+#banner{
+    background-color: #1a1a1a;
+    background-size: auto;
+    color: #fff;
+    padding-top: 1%;
+    /* padding-bottom: 2%; */
+    height: auto;
+}
+
+
+
+
+.promo-title{
+    font-size: 60px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Services */
+
+
+#services {
+    padding: 80px 0;
+    text-align: center;
+}
+
+
+/* .card img {
+    height: 150px;
+    width: 50%;
+} */
+
+.card-img-top {
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+    width: 250px;
+    /* height: 200px; */
+  }
+
+  .card{
+      border: 0;
+  }
+
+  .card:hover {
+    border: 1px solid rgba(0,0,0,.125) !important;
+  }
+  
+  
+  body {
+    font-family: arial;
+    color: #232323;
+}
+
+.frmDropDown {
+    border: 1px solid #dedede;
+    background-color: #FFF;
+    padding: 40px 60px 20px 60px;
+    border-radius: 3px;
+    display: inline-block;
+}
+
+.demoInputBox {
+    padding: 10px;
+    border: #dedede 1px solid;
+    border-radius: 3px;
+    width: 250px;
+    margin-top: 5px;
+    height: 40px;
+}
+
+.row {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+/*.loader {*/
+/*    background: url(../../images/loader.gif) no-repeat center right 15px;*/
+/*}*/
