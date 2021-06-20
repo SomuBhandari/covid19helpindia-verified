@@ -62,12 +62,12 @@ if (mysqli_connect_errno()){
     <div class="container">
         <div class="row">
             <div class="col-md-10">
-                <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>Hospital Dashboard </h1>
+                <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>Donor Dashboard </h1>
             </div>
             <div class="col-md-2">
                 
               <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="modal" data-target="#addPage" aria-haspopup="true" aria-expanded="true">
-                Add Hospital
+                Add Donor
               </button>
 
   
