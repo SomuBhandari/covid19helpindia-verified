@@ -7,16 +7,14 @@
     <title>General Beds</title>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
- <script
-  src="https://code.jquery.com/jquery-3.6.0.min.js"
-  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-  crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
+
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../style.css">
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" /> 
-
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+    <script src="../ajax/search-handler.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
 
     <script src="../ajax/handler.js"></script>
     <script src="../ajax/search-handler.js"></script>
@@ -83,7 +81,7 @@
                 <option value disabled selected>Select State</option>
                 <?php
 include '../lib/db.php';
-$query = "SELECT * FROM states";
+$query = "SELECT * FROM state";
 $result = mysqli_query($db, $query);
 while ($row = mysqli_fetch_array($result)){
     ?>
@@ -98,6 +96,15 @@ while ($row = mysqli_fetch_array($result)){
             <label>City:</label><br /> <select name="city"
                 id="city-list" class="demoInputBox">
                 <option>Select City</option>
+                <?php
+                $city = "SELECT * FROM city";
+$city_result = mysqli_query($db, $city);
+while ($row = mysqli_fetch_array($city_result)){
+    ?>
+<option value="<?php echo $row["pk_city_id"]; ?>"><?php echo $row["city_name"]; ?></option>
+<?php
+}
+?>
             </select>
         </div>
       </div>
@@ -107,7 +114,8 @@ while ($row = mysqli_fetch_array($result)){
                     <th>Name</th>
                     <th>Number</th>
                     <th>City</th>
-                    <th>State</th>
+                    <th>Address</th>
+                    <th>Additional Information</th>
                 </tr>
             </thead>
             <tbody>

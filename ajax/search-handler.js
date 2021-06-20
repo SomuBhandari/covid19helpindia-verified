@@ -17,7 +17,7 @@ $(document).ready(function() {
 function listRecords(city){
     $.ajax({
 		type: "POST",
-		url: "../general/search.php",
+		url: "../general/search-general.php",
 		data: 'city='+city,
 		success: function(data){
 			$('tbody').html(data);
