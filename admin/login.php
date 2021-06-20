@@ -9,8 +9,8 @@
     // $pass=md5($password);
     // echo $password ,'<br>';
     // echo $pass;
-    echo $email;
-    echo $password;
+   //  echo $email;
+   //  echo $password;
      $query  = "SELECT *FROM admin_user WHERE `user_name` = '".$email."' ";
      $res  = mysqli_query($db,$query);
      $data = mysqli_fetch_array($res);
@@ -23,7 +23,7 @@
       
      if($count==1){
          	
-         echo json_encode("login success");  
+         // echo json_encode("login success");  
         session_start();
          $_SESSION["loggedin"] = true;
          $_SESSION['sess_useruser']=$email;

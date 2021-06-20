@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -16,7 +19,7 @@
   <body>
 
 <?php
-session_start();
+// session_start();
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] != true){
   header("location: ./login.php");
   exit;
@@ -108,7 +111,7 @@ if (mysqli_connect_errno()){
                   echo "Failed to connect to MySQL: " . mysqli_connect_error();
                 }
 
-                $donor_query = "SELECT bd.pk_blood_donor_id, bd.`donor_name`, bd.`contact`, bd.`additional_information`, bg.`blood_group`, c.`city_name`, s.`state_name`, bd.`available`
+                $donor_query = "SELECT bd.`pk_blood_donor_id`, bd.`donor_name`, bd.`contact`, bd.`additional_information`, bg.`blood_group`, c.`city_name`, s.`state_name`, bd.`available`
                 FROM 
                     `blood_donor` bd
                 LEFT JOIN 
@@ -136,13 +139,17 @@ if (mysqli_connect_errno()){
                     <td>'.$row['state_name'].'</td>';
 
                     if($available==0){
-                        echo "
-                        <form method='POST' action='setavailability.php'>
-                        <td><button type='submit' name='makeavailable' value='$row[pk_blood_donor_id]'>Make Available</button></td>";
+                        echo '
+                        <form method="POST" action="setavailability.php">
+                        <td><button type="submit" name="makeavailable" id="avial" onclick="myFunction()" value="'.$row['pk_blood_donor_id'].'">Make Available</button></td>
+                        </form>';
                     }
                     else{
-                        echo "<td><button type='submit' name='makeunavailable' value='$row[pk_blood_donor_id]'>Make Unavailable</button></td>
-                        </form>";
+                        echo '
+                        <form method="POST" action="setavailability.php">
+                        <td><button type="submit" name="makeunavailable" onclick="myFunction()" id="unavail" value="'.$row['pk_blood_donor_id'].'">Make Unavailable</button></td>
+                        </form>';
+                        
                     }
                     echo "</tr>";
                 }
@@ -257,5 +264,13 @@ if (mysqli_connect_errno()){
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- <script>
+function myFunction(){
+  var x = document.getElementById("avial").value;
+  console.log(x);
+console.log(document.getElementById("unavail").value);
+}
+
+</script> -->
 </body>
 </html>
